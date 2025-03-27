@@ -7,7 +7,6 @@
 #include<ctime>
 //#include<boost/math/tools/minima.hpp>
 
-#define INT_MIN (-INT_MAX - 1)
 
 using namespace Rcpp;
 using namespace arma;
@@ -332,7 +331,7 @@ Rcpp::List spacoap_cpp(const arma::mat& X_count, const arma::vec& a, const arma:
   
   mat Muf(n,q, fill::zeros);
   vec ELBO_vec(maxIter), Lambda;
-  ELBO_vec(0) = INT_MIN;
+  ELBO_vec(0) = -1e15;
   mat S_bar, dX, tY;
   int iter;
   

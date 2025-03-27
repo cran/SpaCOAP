@@ -12,92 +12,107 @@
 
 <meta name="author" content="Wei Liu" />
 
-<meta name="date" content="2024-05-26" />
+<meta name="date" content="2025-03-27" />
 
 <title>SpaCOAP: mouse spleen dataset</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {  }
+{ }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -106,13 +121,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -318,322 +340,358 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">SpaCOAP: mouse spleen dataset</h1>
 <h4 class="author">Wei Liu</h4>
-<h4 class="date">2024-05-26</h4>
+<h4 class="date">2025-03-27</h4>
 
 
 
-<p>This vignette introduces the SpaCOAP workflow for the analysis of spatial multi-omics dataset.</p>
-<p>We demonstrate the use of SpaCOAP to one mouse spleen data collected from the SPOTS platform that are <a href="https://github.com/feiyoung/SpaCOAP/tree/master/vignettes_data">here</a>, which can be downloaded to the current working path by the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">url1 &lt;-<span class="st"> &quot;https://github.com/feiyoung/SpaCOAP/raw/master/vignettes_data/&quot;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">rna_object &lt;-<span class="st"> &quot;seu_rna_over_Spleen.RDS?raw=true&quot;</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">download.file</span>(<span class="kw">paste0</span>(url1, rna_object),<span class="st">&quot;seu_rna_over_Spleen.RDS&quot;</span>,<span class="dt">mode=</span><span class="st">&#39;wb&#39;</span>)</a>
-<a class="sourceLine" id="cb1-4" title="4">protein_object &lt;-<span class="st"> &quot;seu_adt_over_Spleen.RDS?raw=true&quot;</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="kw">download.file</span>(<span class="kw">paste0</span>(url1,protein_object), <span class="st">&#39;seu_adt_over_Spleen.RDS&#39;</span>, <span class="dt">mode=</span><span class="st">&#39;wb&#39;</span>)</a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="co">## download  annotation</span></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="kw">download.file</span>(<span class="kw">paste0</span>(url1, <span class="st">&quot;cell_clusters_anno.rds?raw=true&quot;</span>), <span class="st">&quot;cell_clusters_anno.rds&quot;</span>, <span class="dt">mode=</span><span class="st">&quot;wb&quot;</span>)</a></code></pre></div>
+<p>This vignette introduces the SpaCOAP workflow for the analysis of
+spatial multi-omics dataset.</p>
+<p>We demonstrate the use of SpaCOAP to one Spleen SPOTS data that are
+<a href="https://github.com/feiyoung/SpaCOAP/tree/master/vignettes_data/">here</a>,
+which can be downloaded to the current working path by the following
+command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>url1 <span class="ot">&lt;-</span> <span class="st">&quot;https://github.com/feiyoung/SpaCOAP/tree/master/vignettes_data/&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>rna_object <span class="ot">&lt;-</span> <span class="st">&quot;seu_rna_over_Spleen.RDS?raw=true&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">download.file</span>(<span class="fu">paste0</span>(url1, rna_object),<span class="st">&quot;seu_rna_over_Spleen.RDS&quot;</span>,<span class="at">mode=</span><span class="st">&#39;wb&#39;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>protein_object <span class="ot">&lt;-</span> <span class="st">&quot;seu_adt_over_Spleen.RDS?raw=true&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">download.file</span>(<span class="fu">paste0</span>(url1,protein_object), <span class="st">&#39;seu_adt_over_Spleen.RDS&#39;</span>, <span class="at">mode=</span><span class="st">&#39;wb&#39;</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="do">## download  annotation</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">download.file</span>(<span class="fu">paste0</span>(url1, <span class="st">&quot;cell_clusters_anno.rds?raw=true&quot;</span>), <span class="st">&quot;cell_clusters_anno.rds&quot;</span>, <span class="st">&quot;wb&quot;</span>)</span></code></pre></div>
 <div id="data-preparation" class="section level3">
 <h3>Data preparation</h3>
-<p>Then we load the data to R.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">seu_rna_over &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;./seu_rna_over_Spleen.RDS&quot;</span>)</a>
-<a class="sourceLine" id="cb2-2" title="2">seu_adt_over &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;./seu_adt_over_Spleen.RDS&quot;</span>)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw">load</span>(<span class="st">&quot;./cell_clusters_anno.rds&quot;</span>)</a></code></pre></div>
+<p>Then load to R. Here, we only focus one section.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>seu_rna_over <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./seu_rna_over_Spleen.RDS&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>seu_adt_over <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./seu_adt_over_Spleen.RDS&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;./cell_clusters_anno.rds&quot;</span>)</span></code></pre></div>
 <p>The package can be loaded with the command:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(SpaCOAP) <span class="co">#</span></a></code></pre></div>
-<p>Define some functions for use.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">searchRadius &lt;-<span class="st"> </span><span class="cf">function</span>(pos, <span class="dt">lower.med=</span><span class="dv">8</span>, <span class="dt">upper.med=</span><span class="dv">10</span>, <span class="dt">radius.upper=</span> <span class="ot">NULL</span>){</a>
-<a class="sourceLine" id="cb4-2" title="2">  <span class="cf">if</span> (<span class="op">!</span><span class="kw">inherits</span>(pos, <span class="st">&quot;matrix&quot;</span>))</a>
-<a class="sourceLine" id="cb4-3" title="3">    <span class="kw">stop</span>(<span class="st">&quot;method is only for  matrix object!&quot;</span>)</a>
-<a class="sourceLine" id="cb4-4" title="4">  </a>
-<a class="sourceLine" id="cb4-5" title="5">  </a>
-<a class="sourceLine" id="cb4-6" title="6">  <span class="co">## Automatically determine the upper radius</span></a>
-<a class="sourceLine" id="cb4-7" title="7">  n_spots &lt;-<span class="st"> </span><span class="kw">nrow</span>(pos)</a>
-<a class="sourceLine" id="cb4-8" title="8">  idx &lt;-<span class="st"> </span><span class="kw">sample</span>(n_spots, <span class="kw">min</span>(<span class="dv">100</span>, n_spots))</a>
-<a class="sourceLine" id="cb4-9" title="9">  dis &lt;-<span class="st"> </span><span class="kw">dist</span>(pos[idx,])</a>
-<a class="sourceLine" id="cb4-10" title="10">  <span class="cf">if</span>(<span class="kw">is.null</span>(radius.upper)){</a>
-<a class="sourceLine" id="cb4-11" title="11">    <span class="co">#radius.upper &lt;- max(dis)</span></a>
-<a class="sourceLine" id="cb4-12" title="12">    radius.upper &lt;-<span class="st"> </span><span class="kw">sort</span>(dis)[<span class="dv">20</span>] <span class="co">## select the nearest 20 spots.</span></a>
-<a class="sourceLine" id="cb4-13" title="13">  }</a>
-<a class="sourceLine" id="cb4-14" title="14">  radius.lower &lt;-<span class="st"> </span><span class="kw">min</span>(dis[dis<span class="op">&gt;</span><span class="dv">0</span>])</a>
-<a class="sourceLine" id="cb4-15" title="15">  Adj_sp &lt;-<span class="st"> </span>DR.SC<span class="op">:::</span><span class="kw">getneighborhood_fast</span>(pos, <span class="dt">radius=</span>radius.upper)</a>
-<a class="sourceLine" id="cb4-16" title="16">  Med &lt;-<span class="st"> </span><span class="kw">summary</span>(Matrix<span class="op">::</span><span class="kw">rowSums</span>(Adj_sp))[<span class="st">&#39;Median&#39;</span>]</a>
-<a class="sourceLine" id="cb4-17" title="17">  <span class="cf">if</span>(Med <span class="op">&lt;</span><span class="st"> </span>lower.med) <span class="kw">stop</span>(<span class="st">&quot;The radius.upper is too smaller that cannot find median neighbors greater than 4.&quot;</span>)</a>
-<a class="sourceLine" id="cb4-18" title="18">  start.radius &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb4-19" title="19">  Med &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb4-20" title="20">  <span class="kw">message</span>(<span class="st">&quot;Find the adjacency matrix by bisection method...&quot;</span>)</a>
-<a class="sourceLine" id="cb4-21" title="21">  maxIter &lt;-<span class="st"> </span><span class="dv">30</span></a>
-<a class="sourceLine" id="cb4-22" title="22">  k &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb4-23" title="23">  <span class="cf">while</span>(<span class="op">!</span>(Med <span class="op">&gt;=</span><span class="st"> </span>lower.med <span class="op">&amp;&amp;</span><span class="st"> </span>Med <span class="op">&lt;=</span>upper.med)){ <span class="co"># ensure that each spot has about 4~6 neighborhoods in median.</span></a>
-<a class="sourceLine" id="cb4-24" title="24">    </a>
-<a class="sourceLine" id="cb4-25" title="25">    Adj_sp &lt;-<span class="st"> </span>DR.SC<span class="op">:::</span><span class="kw">getneighborhood_fast</span>(pos, <span class="dt">radius=</span>start.radius)</a>
-<a class="sourceLine" id="cb4-26" title="26">    Med &lt;-<span class="st"> </span><span class="kw">summary</span>(Matrix<span class="op">::</span><span class="kw">rowSums</span>(Adj_sp))[<span class="st">&#39;Median&#39;</span>]</a>
-<a class="sourceLine" id="cb4-27" title="27">    <span class="cf">if</span>(Med <span class="op">&lt;</span><span class="st"> </span>lower.med){</a>
-<a class="sourceLine" id="cb4-28" title="28">      radius.lower &lt;-<span class="st"> </span>start.radius</a>
-<a class="sourceLine" id="cb4-29" title="29">      start.radius &lt;-<span class="st"> </span>(radius.lower <span class="op">+</span><span class="st"> </span>radius.upper)<span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb4-30" title="30">    }<span class="cf">else</span> <span class="cf">if</span>(Med <span class="op">&gt;</span>upper.med){</a>
-<a class="sourceLine" id="cb4-31" title="31">      radius.upper &lt;-<span class="st"> </span>start.radius</a>
-<a class="sourceLine" id="cb4-32" title="32">      start.radius &lt;-<span class="st"> </span>(radius.lower <span class="op">+</span><span class="st"> </span>radius.upper)<span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb4-33" title="33">    }</a>
-<a class="sourceLine" id="cb4-34" title="34">    <span class="kw">message</span>(<span class="st">&quot;Current radius is &quot;</span>, <span class="kw">round</span>(start.radius, <span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb4-35" title="35">    <span class="kw">message</span>(<span class="st">&quot;Median of neighborhoods is &quot;</span>, Med)</a>
-<a class="sourceLine" id="cb4-36" title="36">    <span class="cf">if</span>(k <span class="op">&gt;</span><span class="st"> </span>maxIter) {</a>
-<a class="sourceLine" id="cb4-37" title="37">      <span class="kw">message</span>(<span class="st">&quot;Reach the maximum iteration but can not find a proper radius!&quot;</span>)</a>
-<a class="sourceLine" id="cb4-38" title="38">      <span class="cf">break</span>;</a>
-<a class="sourceLine" id="cb4-39" title="39">    }</a>
-<a class="sourceLine" id="cb4-40" title="40">    k &lt;-<span class="st"> </span>k <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb4-41" title="41">  }</a>
-<a class="sourceLine" id="cb4-42" title="42">  </a>
-<a class="sourceLine" id="cb4-43" title="43">  <span class="kw">return</span>(start.radius)</a>
-<a class="sourceLine" id="cb4-44" title="44">}</a>
-<a class="sourceLine" id="cb4-45" title="45"></a>
-<a class="sourceLine" id="cb4-46" title="46">acc_fun &lt;-<span class="st"> </span><span class="cf">function</span>(y1, y2){</a>
-<a class="sourceLine" id="cb4-47" title="47">  n1 &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(y1))</a>
-<a class="sourceLine" id="cb4-48" title="48">  n2 &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(y2))</a>
-<a class="sourceLine" id="cb4-49" title="49">  <span class="cf">if</span>(n1<span class="op">&lt;</span>n2){ <span class="co">## ensure n1&gt; n2</span></a>
-<a class="sourceLine" id="cb4-50" title="50">    a &lt;-<span class="st"> </span>y1</a>
-<a class="sourceLine" id="cb4-51" title="51">    y1 &lt;-<span class="st"> </span>y2</a>
-<a class="sourceLine" id="cb4-52" title="52">    y2 &lt;-<span class="st"> </span>a</a>
-<a class="sourceLine" id="cb4-53" title="53">    n1 &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(y1))</a>
-<a class="sourceLine" id="cb4-54" title="54">    n2 &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(y2))</a>
-<a class="sourceLine" id="cb4-55" title="55">  }</a>
-<a class="sourceLine" id="cb4-56" title="56">  cm &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">table</span>(<span class="dt">Actual =</span> y1, <span class="dt">Predicted =</span> y2))</a>
-<a class="sourceLine" id="cb4-57" title="57">  rnames &lt;-<span class="kw">row.names</span>(cm)</a>
-<a class="sourceLine" id="cb4-58" title="58">  cnames &lt;-<span class="st"> </span><span class="kw">colnames</span>(cm)</a>
-<a class="sourceLine" id="cb4-59" title="59">  union_names &lt;-<span class="st"> </span><span class="kw">union</span>(rnames, cnames)</a>
-<a class="sourceLine" id="cb4-60" title="60">  n &lt;-<span class="st"> </span><span class="kw">length</span>(union_names)</a>
-<a class="sourceLine" id="cb4-61" title="61">  cm_new &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, n, n)</a>
-<a class="sourceLine" id="cb4-62" title="62">  <span class="kw">row.names</span>(cm_new) &lt;-<span class="st"> </span><span class="kw">colnames</span>(cm_new) &lt;-<span class="st"> </span>union_names</a>
-<a class="sourceLine" id="cb4-63" title="63">  <span class="cf">for</span>(r <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n2){</a>
-<a class="sourceLine" id="cb4-64" title="64">    cm_new[rnames,cnames[r]] &lt;-<span class="st"> </span>cm[rnames,cnames[r]]</a>
-<a class="sourceLine" id="cb4-65" title="65">  }</a>
-<a class="sourceLine" id="cb4-66" title="66">  </a>
-<a class="sourceLine" id="cb4-67" title="67">  <span class="kw">sum</span>(<span class="kw">diag</span>(cm_new)) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(y1)</a>
-<a class="sourceLine" id="cb4-68" title="68">}</a>
-<a class="sourceLine" id="cb4-69" title="69"></a>
-<a class="sourceLine" id="cb4-70" title="70">kappa_fun &lt;-<span class="st"> </span><span class="cf">function</span>(y1, y2){</a>
-<a class="sourceLine" id="cb4-71" title="71">  <span class="kw">require</span>(irr)</a>
-<a class="sourceLine" id="cb4-72" title="72">  dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(y1, y2)</a>
-<a class="sourceLine" id="cb4-73" title="73">  k_res &lt;-<span class="st"> </span><span class="kw">kappa2</span>(dat)</a>
-<a class="sourceLine" id="cb4-74" title="74">  k_res<span class="op">$</span>value</a>
-<a class="sourceLine" id="cb4-75" title="75">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(SpaCOAP) <span class="co">#</span></span></code></pre></div>
+<p>Define some functions</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>searchRadius <span class="ot">&lt;-</span> <span class="cf">function</span>(pos, <span class="at">lower.med=</span><span class="dv">8</span>, <span class="at">upper.med=</span><span class="dv">10</span>, <span class="at">radius.upper=</span> <span class="cn">NULL</span>){</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">inherits</span>(pos, <span class="st">&quot;matrix&quot;</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;method is only for  matrix object!&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  </span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  </span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="do">## Automatically determine the upper radius</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>  n_spots <span class="ot">&lt;-</span> <span class="fu">nrow</span>(pos)</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(n_spots, <span class="fu">min</span>(<span class="dv">100</span>, n_spots))</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>  dis <span class="ot">&lt;-</span> <span class="fu">dist</span>(pos[idx,])</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(radius.upper)){</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>    <span class="co">#radius.upper &lt;- max(dis)</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>    radius.upper <span class="ot">&lt;-</span> <span class="fu">sort</span>(dis)[<span class="dv">20</span>] <span class="do">## select the nearest 20 spots.</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>  }</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>  radius.lower <span class="ot">&lt;-</span> <span class="fu">min</span>(dis[dis<span class="sc">&gt;</span><span class="dv">0</span>])</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>  Adj_sp <span class="ot">&lt;-</span> DR.SC<span class="sc">:::</span><span class="fu">getneighborhood_fast</span>(pos, <span class="at">radius=</span>radius.upper)</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>  Med <span class="ot">&lt;-</span> <span class="fu">summary</span>(Matrix<span class="sc">::</span><span class="fu">rowSums</span>(Adj_sp))[<span class="st">&#39;Median&#39;</span>]</span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>  <span class="cf">if</span>(Med <span class="sc">&lt;</span> lower.med) <span class="fu">stop</span>(<span class="st">&quot;The radius.upper is too smaller that cannot find median neighbors greater than 4.&quot;</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>  start.radius <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>  Med <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Find the adjacency matrix by bisection method...&quot;</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>  maxIter <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>  <span class="cf">while</span>(<span class="sc">!</span>(Med <span class="sc">&gt;=</span> lower.med <span class="sc">&amp;&amp;</span> Med <span class="sc">&lt;=</span>upper.med)){ <span class="co"># ensure that each spot has about 4~6 neighborhoods in median.</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>    </span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a>    Adj_sp <span class="ot">&lt;-</span> DR.SC<span class="sc">:::</span><span class="fu">getneighborhood_fast</span>(pos, <span class="at">radius=</span>start.radius)</span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>    Med <span class="ot">&lt;-</span> <span class="fu">summary</span>(Matrix<span class="sc">::</span><span class="fu">rowSums</span>(Adj_sp))[<span class="st">&#39;Median&#39;</span>]</span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>    <span class="cf">if</span>(Med <span class="sc">&lt;</span> lower.med){</span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>      radius.lower <span class="ot">&lt;-</span> start.radius</span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a>      start.radius <span class="ot">&lt;-</span> (radius.lower <span class="sc">+</span> radius.upper)<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Med <span class="sc">&gt;</span>upper.med){</span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a>      radius.upper <span class="ot">&lt;-</span> start.radius</span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a>      start.radius <span class="ot">&lt;-</span> (radius.lower <span class="sc">+</span> radius.upper)<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a>    }</span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Current radius is &quot;</span>, <span class="fu">round</span>(start.radius, <span class="dv">2</span>))</span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Median of neighborhoods is &quot;</span>, Med)</span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a>    <span class="cf">if</span>(k <span class="sc">&gt;</span> maxIter) {</span>
+<span id="cb4-37"><a href="#cb4-37" tabindex="-1"></a>      <span class="fu">message</span>(<span class="st">&quot;Reach the maximum iteration but can not find a proper radius!&quot;</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" tabindex="-1"></a>      <span class="cf">break</span>;</span>
+<span id="cb4-39"><a href="#cb4-39" tabindex="-1"></a>    }</span>
+<span id="cb4-40"><a href="#cb4-40" tabindex="-1"></a>    k <span class="ot">&lt;-</span> k <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb4-41"><a href="#cb4-41" tabindex="-1"></a>  }</span>
+<span id="cb4-42"><a href="#cb4-42" tabindex="-1"></a>  </span>
+<span id="cb4-43"><a href="#cb4-43" tabindex="-1"></a>  <span class="fu">return</span>(start.radius)</span>
+<span id="cb4-44"><a href="#cb4-44" tabindex="-1"></a>}</span>
+<span id="cb4-45"><a href="#cb4-45" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" tabindex="-1"></a>acc_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(y1, y2){</span>
+<span id="cb4-47"><a href="#cb4-47" tabindex="-1"></a>  n1 <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(y1))</span>
+<span id="cb4-48"><a href="#cb4-48" tabindex="-1"></a>  n2 <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(y2))</span>
+<span id="cb4-49"><a href="#cb4-49" tabindex="-1"></a>  <span class="cf">if</span>(n1<span class="sc">&lt;</span>n2){ <span class="do">## ensure n1&gt; n2</span></span>
+<span id="cb4-50"><a href="#cb4-50" tabindex="-1"></a>    a <span class="ot">&lt;-</span> y1</span>
+<span id="cb4-51"><a href="#cb4-51" tabindex="-1"></a>    y1 <span class="ot">&lt;-</span> y2</span>
+<span id="cb4-52"><a href="#cb4-52" tabindex="-1"></a>    y2 <span class="ot">&lt;-</span> a</span>
+<span id="cb4-53"><a href="#cb4-53" tabindex="-1"></a>    n1 <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(y1))</span>
+<span id="cb4-54"><a href="#cb4-54" tabindex="-1"></a>    n2 <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(y2))</span>
+<span id="cb4-55"><a href="#cb4-55" tabindex="-1"></a>  }</span>
+<span id="cb4-56"><a href="#cb4-56" tabindex="-1"></a>  cm <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">table</span>(<span class="at">Actual =</span> y1, <span class="at">Predicted =</span> y2))</span>
+<span id="cb4-57"><a href="#cb4-57" tabindex="-1"></a>  rnames <span class="ot">&lt;-</span><span class="fu">row.names</span>(cm)</span>
+<span id="cb4-58"><a href="#cb4-58" tabindex="-1"></a>  cnames <span class="ot">&lt;-</span> <span class="fu">colnames</span>(cm)</span>
+<span id="cb4-59"><a href="#cb4-59" tabindex="-1"></a>  union_names <span class="ot">&lt;-</span> <span class="fu">union</span>(rnames, cnames)</span>
+<span id="cb4-60"><a href="#cb4-60" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(union_names)</span>
+<span id="cb4-61"><a href="#cb4-61" tabindex="-1"></a>  cm_new <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, n, n)</span>
+<span id="cb4-62"><a href="#cb4-62" tabindex="-1"></a>  <span class="fu">row.names</span>(cm_new) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(cm_new) <span class="ot">&lt;-</span> union_names</span>
+<span id="cb4-63"><a href="#cb4-63" tabindex="-1"></a>  <span class="cf">for</span>(r <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n2){</span>
+<span id="cb4-64"><a href="#cb4-64" tabindex="-1"></a>    cm_new[rnames,cnames[r]] <span class="ot">&lt;-</span> cm[rnames,cnames[r]]</span>
+<span id="cb4-65"><a href="#cb4-65" tabindex="-1"></a>  }</span>
+<span id="cb4-66"><a href="#cb4-66" tabindex="-1"></a>  </span>
+<span id="cb4-67"><a href="#cb4-67" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">diag</span>(cm_new)) <span class="sc">/</span> <span class="fu">length</span>(y1)</span>
+<span id="cb4-68"><a href="#cb4-68" tabindex="-1"></a>}</span>
+<span id="cb4-69"><a href="#cb4-69" tabindex="-1"></a></span>
+<span id="cb4-70"><a href="#cb4-70" tabindex="-1"></a>kappa_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(y1, y2){</span>
+<span id="cb4-71"><a href="#cb4-71" tabindex="-1"></a>  <span class="fu">require</span>(irr)</span>
+<span id="cb4-72"><a href="#cb4-72" tabindex="-1"></a>  dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(y1, y2)</span>
+<span id="cb4-73"><a href="#cb4-73" tabindex="-1"></a>  k_res <span class="ot">&lt;-</span> <span class="fu">kappa2</span>(dat)</span>
+<span id="cb4-74"><a href="#cb4-74" tabindex="-1"></a>  k_res<span class="sc">$</span>value</span>
+<span id="cb4-75"><a href="#cb4-75" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="obtain-data-matrices-and-tunning-parameters" class="section level2">
-<h2>Obtain data matrices and tunning parameters</h2>
-<p>Wrap the data matrix from the SeuratObject, including the RNA expression count matrix <code>X_count</code>, covraite matrix <code>H</code> associated with protein markters, control variables (here only an intercept term) <code>Z</code>, and spatial coordinate matrix <code>pos</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"></a>
-<a class="sourceLine" id="cb5-2" title="2">X_count &lt;-<span class="st"> </span>Matrix<span class="op">::</span><span class="kw">t</span>(seu_rna_over[[<span class="st">&quot;RNA&quot;</span>]][seu_rna_over[[<span class="st">&#39;RNA&#39;</span>]]<span class="op">@</span>var.features,])</a>
-<a class="sourceLine" id="cb5-3" title="3">X_count &lt;-<span class="st">  </span><span class="kw">as.matrix</span>(X_count)</a>
-<a class="sourceLine" id="cb5-4" title="4">H &lt;-<span class="st"> </span><span class="kw">t</span>(<span class="kw">as.matrix</span>(seu_adt_over[[<span class="st">&quot;ADT&quot;</span>]]<span class="op">@</span>data))</a>
-<a class="sourceLine" id="cb5-5" title="5">Z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>, <span class="kw">nrow</span>(H), <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-6" title="6">pos &lt;-<span class="st"> </span><span class="kw">cbind</span>(seu_rna_over<span class="op">$</span>X0, seu_rna_over<span class="op">$</span>X1)</a>
-<a class="sourceLine" id="cb5-7" title="7"></a>
-<a class="sourceLine" id="cb5-8" title="8"></a>
-<a class="sourceLine" id="cb5-9" title="9">radius_use &lt;-<span class="st"> </span><span class="kw">searchRadius</span>(pos, <span class="dt">radius.upper =</span> <span class="ot">NULL</span>)</a>
-<a class="sourceLine" id="cb5-10" title="10"><span class="kw">set.seed</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-11" title="11">n_spots &lt;-<span class="st"> </span><span class="kw">nrow</span>(pos)</a>
-<a class="sourceLine" id="cb5-12" title="12">idx &lt;-<span class="st"> </span><span class="kw">sample</span>(n_spots, <span class="kw">min</span>(<span class="dv">100</span>, n_spots))</a>
-<a class="sourceLine" id="cb5-13" title="13">dis &lt;-<span class="st"> </span><span class="kw">dist</span>(pos[idx,])</a>
-<a class="sourceLine" id="cb5-14" title="14">Adj_sp &lt;-<span class="st">  </span>SpaCOAP<span class="op">:::</span><span class="kw">getneighbor_weightmat</span>(pos, <span class="dt">radius =</span> radius_use, <span class="dt">width=</span><span class="kw">median</span>(dis))</a></code></pre></div>
+<div id="view-the-dlpfc-data" class="section level2">
+<h2>View the DLPFC data</h2>
+<p>Wrap the data matrix from the SeuratObject, including the RNA
+expression count matrix <code>X_count</code>, covraite matrix
+<code>H</code> associated with protein markters, control variables (here
+only an intercept term) <code>Z</code>, and spatial coordinate matrix
+<code>pos</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>X_count <span class="ot">&lt;-</span> Matrix<span class="sc">::</span><span class="fu">t</span>(seu_rna_over[[<span class="st">&quot;RNA&quot;</span>]][seu_rna_over[[<span class="st">&#39;RNA&#39;</span>]]<span class="sc">@</span>var.features,])</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>X_count <span class="ot">&lt;-</span>  <span class="fu">as.matrix</span>(X_count)</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>H <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.matrix</span>(seu_adt_over[[<span class="st">&quot;ADT&quot;</span>]]<span class="sc">@</span>data))</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(H), <span class="dv">1</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>pos <span class="ot">&lt;-</span> <span class="fu">cbind</span>(seu_rna_over<span class="sc">$</span>X0, seu_rna_over<span class="sc">$</span>X1)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>radius_use <span class="ot">&lt;-</span> <span class="fu">searchRadius</span>(pos, <span class="at">radius.upper =</span> <span class="cn">NULL</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>n_spots <span class="ot">&lt;-</span> <span class="fu">nrow</span>(pos)</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(n_spots, <span class="fu">min</span>(<span class="dv">100</span>, n_spots))</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>dis <span class="ot">&lt;-</span> <span class="fu">dist</span>(pos[idx,])</span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>Adj_sp <span class="ot">&lt;-</span>  SpaCOAP<span class="sc">:::</span><span class="fu">getneighbor_weightmat</span>(pos, <span class="at">radius =</span> radius_use, <span class="at">width=</span><span class="fu">median</span>(dis))</span></code></pre></div>
 <div id="determine-the-structure-dimension" class="section level3">
 <h3>Determine the structure dimension</h3>
-<p>Next, we select the number of factors and the rank of regreesion coefficient matrix using the proposed criterion.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">q_max &lt;-<span class="st"> </span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb6-2" title="2">d &lt;-<span class="st"> </span><span class="kw">ncol</span>(H)</a>
-<a class="sourceLine" id="cb6-3" title="3">rank_max &lt;-<span class="st"> </span>d</a>
-<a class="sourceLine" id="cb6-4" title="4">tic &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb6-5" title="5">reslist_max &lt;-<span class="st"> </span><span class="kw">SpaCOAP</span>(X_count, Adj_sp,  H,  Z,</a>
-<a class="sourceLine" id="cb6-6" title="6">                   <span class="dt">rank_use =</span> rank_max, <span class="dt">q=</span>q_max, <span class="dt">epsELBO =</span> <span class="fl">1e-8</span>,  <span class="dt">maxIter =</span> <span class="dv">30</span>)</a>
-<a class="sourceLine" id="cb6-7" title="7">toc &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb6-8" title="8">time_spacoap_max &lt;-<span class="st"> </span>toc[<span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>tic[<span class="dv">3</span>]</a></code></pre></div>
-<p>We apply the criterion, taking into account that the real data does not necessarily originate from our model. Therefore, we opt for a conservative approach that retains more information.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">threshold=<span class="kw">c</span>(<span class="fl">1e-15</span>, <span class="fl">1e-20</span>)</a>
-<a class="sourceLine" id="cb7-2" title="2">thre1 &lt;-<span class="st"> </span>threshold[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb7-3" title="3">beta_svalues &lt;-<span class="st"> </span><span class="kw">svd</span>(reslist_max<span class="op">$</span>bbeta)<span class="op">$</span>d</a>
-<a class="sourceLine" id="cb7-4" title="4">beta_svalues &lt;-<span class="st"> </span>beta_svalues[beta_svalues<span class="op">&gt;</span>thre1]</a>
-<a class="sourceLine" id="cb7-5" title="5">ratio1 &lt;-<span class="st"> </span>beta_svalues[<span class="op">-</span><span class="kw">length</span>(beta_svalues)] <span class="op">/</span><span class="st"> </span>beta_svalues[<span class="op">-</span><span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb7-6" title="6">ratio1[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">## Here, we set hr = 9 rather 1 to retain more information</span></a>
-<a class="sourceLine" id="cb7-8" title="8"></a>
-<a class="sourceLine" id="cb7-9" title="9">thre2 &lt;-<span class="st"> </span>threshold[<span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb7-10" title="10">B_svalues &lt;-<span class="st"> </span><span class="kw">svd</span>(reslist_max<span class="op">$</span>B)<span class="op">$</span>d</a>
-<a class="sourceLine" id="cb7-11" title="11">B_svalues &lt;-<span class="st"> </span>B_svalues[B_svalues<span class="op">&gt;</span>thre2]</a>
-<a class="sourceLine" id="cb7-12" title="12">ratio_fac &lt;-<span class="st"> </span>B_svalues[<span class="op">-</span><span class="kw">length</span>(B_svalues)] <span class="op">/</span><span class="st"> </span>B_svalues[<span class="op">-</span><span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb7-13" title="13">ratio_fac[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>]</a>
-<a class="sourceLine" id="cb7-14" title="14"><span class="co"># [1] 6.123909e+00 2.749414e+00 1.376498e+00 1.314487e+00 3.310699e+14</span></a>
-<a class="sourceLine" id="cb7-15" title="15"><span class="co"># Here, we choose q=5 since huge decrease of singular values happen in q=5.</span></a>
-<a class="sourceLine" id="cb7-16" title="16">hq &lt;-<span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<p>Next, we select the number of factors and the rank of regreesion
+coefficient matrix using the proposed criterion.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>q_max <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">ncol</span>(H)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>rank_max <span class="ot">&lt;-</span> d</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>tic <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>reslist_max <span class="ot">&lt;-</span> <span class="fu">SpaCOAP</span>(X_count, Adj_sp,  H,  Z,</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>                   <span class="at">rank_use =</span> rank_max, <span class="at">q=</span>q_max, <span class="at">epsELBO =</span> <span class="fl">1e-8</span>,  <span class="at">maxIter =</span> <span class="dv">30</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>toc <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>time_spacoap_max <span class="ot">&lt;-</span> toc[<span class="dv">3</span>] <span class="sc">-</span> tic[<span class="dv">3</span>]</span></code></pre></div>
+<p>We apply the criterion, taking into account that the real data does
+not necessarily originate from our model. Therefore, we opt for a
+conservative approach that retains more information.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>threshold<span class="ot">=</span><span class="fu">c</span>(<span class="fl">1e-15</span>, <span class="fl">1e-20</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>thre1 <span class="ot">&lt;-</span> threshold[<span class="dv">1</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>beta_svalues <span class="ot">&lt;-</span> <span class="fu">svd</span>(reslist_max<span class="sc">$</span>bbeta)<span class="sc">$</span>d</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>beta_svalues <span class="ot">&lt;-</span> beta_svalues[beta_svalues<span class="sc">&gt;</span>thre1]</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>ratio1 <span class="ot">&lt;-</span> beta_svalues[<span class="sc">-</span><span class="fu">length</span>(beta_svalues)] <span class="sc">/</span> beta_svalues[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>ratio1[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="do">## Here, we set hr = 9 rather 1 to retain more information</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>thre2 <span class="ot">&lt;-</span> threshold[<span class="dv">2</span>]</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>B_svalues <span class="ot">&lt;-</span> <span class="fu">svd</span>(reslist_max<span class="sc">$</span>B)<span class="sc">$</span>d</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>B_svalues <span class="ot">&lt;-</span> B_svalues[B_svalues<span class="sc">&gt;</span>thre2]</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>ratio_fac <span class="ot">&lt;-</span> B_svalues[<span class="sc">-</span><span class="fu">length</span>(B_svalues)] <span class="sc">/</span> B_svalues[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>ratio_fac[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co"># [1] 6.123909e+00 2.749414e+00 1.376498e+00 1.314487e+00 3.310699e+14</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co"># Here, we choose q=5 since huge decrease of singular values happen in q=5.</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a>hq <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
 </div>
 <div id="fitting-spacoap" class="section level3">
 <h3>Fitting SpaCOAP</h3>
 <p>First, we run the proposed SpaCOAP method.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">hr &lt;-<span class="st"> </span><span class="dv">9</span>;hq &lt;-<span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb8-2" title="2">featureList &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
-<a class="sourceLine" id="cb8-3" title="3">tic &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb8-4" title="4">reslist &lt;-<span class="st"> </span><span class="kw">SpaCOAP</span>(X_count, Adj_sp, <span class="dt">H=</span>H, <span class="dt">Z=</span> Z,  </a>
-<a class="sourceLine" id="cb8-5" title="5">                   <span class="dt">rank_use =</span> hr, <span class="dt">q=</span>hq, <span class="dt">epsELBO =</span> <span class="fl">1e-8</span>)</a>
-<a class="sourceLine" id="cb8-6" title="6">toc &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb8-7" title="7">time_spacoap &lt;-<span class="st"> </span>toc[<span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>tic[<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb8-8" title="8">Matrix<span class="op">::</span><span class="kw">rankMatrix</span>(reslist<span class="op">$</span>bbeta)</a>
-<a class="sourceLine" id="cb8-9" title="9">svd_x &lt;-<span class="st"> </span><span class="kw">svd</span>(reslist<span class="op">$</span>bbeta, <span class="dt">nu =</span> hr, <span class="dt">nv=</span>hr)</a>
-<a class="sourceLine" id="cb8-10" title="10">H_spacoap &lt;-<span class="st"> </span>H <span class="op">%*%</span><span class="st"> </span>svd_x<span class="op">$</span>v</a>
-<a class="sourceLine" id="cb8-11" title="11">(R2_spacoap &lt;-<span class="st"> </span>ProFAST<span class="op">::</span><span class="kw">get_r2_mcfadden</span>(<span class="dt">embeds=</span> <span class="kw">cbind</span>(H_spacoap, reslist<span class="op">$</span>F), <span class="dt">y=</span><span class="kw">as.factor</span>(cell_clusters)))</a>
-<a class="sourceLine" id="cb8-12" title="12">featureList[[<span class="st">&#39;SpaCOAP&#39;</span>]] &lt;-<span class="st"> </span><span class="kw">cbind</span>(H_spacoap, reslist<span class="op">$</span>F)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>hr <span class="ot">&lt;-</span> <span class="dv">9</span>;hq <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>featureList <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>tic <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>reslist <span class="ot">&lt;-</span> <span class="fu">SpaCOAP</span>(X_count, Adj_sp, <span class="at">H=</span>H, <span class="at">Z=</span> Z,  </span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>                   <span class="at">rank_use =</span> hr, <span class="at">q=</span>hq, <span class="at">epsELBO =</span> <span class="fl">1e-8</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>toc <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>time_spacoap <span class="ot">&lt;-</span> toc[<span class="dv">3</span>] <span class="sc">-</span> tic[<span class="dv">3</span>]</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>Matrix<span class="sc">::</span><span class="fu">rankMatrix</span>(reslist<span class="sc">$</span>bbeta)</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>svd_x <span class="ot">&lt;-</span> <span class="fu">svd</span>(reslist<span class="sc">$</span>bbeta, <span class="at">nu =</span> hr, <span class="at">nv=</span>hr)</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>H_spacoap <span class="ot">&lt;-</span> H <span class="sc">%*%</span> svd_x<span class="sc">$</span>v</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>(R2_spacoap <span class="ot">&lt;-</span> ProFAST<span class="sc">::</span><span class="fu">get_r2_mcfadden</span>(<span class="at">embeds=</span> <span class="fu">cbind</span>(H_spacoap, reslist<span class="sc">$</span>F), <span class="at">y=</span><span class="fu">as.factor</span>(cell_clusters)))</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>featureList[[<span class="st">&#39;SpaCOAP&#39;</span>]] <span class="ot">&lt;-</span> <span class="fu">cbind</span>(H_spacoap, reslist<span class="sc">$</span>F)</span></code></pre></div>
 </div>
 <div id="compare-spacoap-and-other-methods" class="section level3">
 <h3>Compare SpaCOAP and other methods</h3>
 <p>First, we run COAP and calculate the MacFadden’s R-square.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co">##COAP</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="kw">library</span>(COAP)</a>
-<a class="sourceLine" id="cb9-3" title="3">tic &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb9-4" title="4">res_coap &lt;-<span class="st"> </span><span class="kw">RR_COAP</span>(X_count, <span class="dt">Z =</span> <span class="kw">cbind</span>(Z, H), <span class="dt">rank_use=</span> <span class="dv">2</span><span class="op">+</span>hr, <span class="dt">q=</span>hq, </a>
-<a class="sourceLine" id="cb9-5" title="5">                    <span class="dt">epsELBO =</span> <span class="fl">1e-7</span>, <span class="dt">maxIter =</span> <span class="dv">30</span>)</a>
-<a class="sourceLine" id="cb9-6" title="6">toc &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb9-7" title="7">time_coap &lt;-<span class="st"> </span>toc[<span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>tic[<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb9-8" title="8">svd_x &lt;-<span class="st"> </span><span class="kw">svd</span>(res_coap<span class="op">$</span>bbeta[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>)], <span class="dt">nu =</span> hr, <span class="dt">nv=</span>hr)</a>
-<a class="sourceLine" id="cb9-9" title="9">H_coap &lt;-<span class="st"> </span>H <span class="op">%*%</span><span class="st"> </span>svd_x<span class="op">$</span>v</a>
-<a class="sourceLine" id="cb9-10" title="10">(R2_coap &lt;-<span class="st"> </span>ProFAST<span class="op">::</span><span class="kw">get_r2_mcfadden</span>(<span class="dt">embeds=</span> <span class="kw">cbind</span>(res_coap<span class="op">$</span>H, H_coap), <span class="dt">y=</span><span class="kw">as.factor</span>(cell_clusters)))</a>
-<a class="sourceLine" id="cb9-11" title="11">featureList[[<span class="st">&#39;COAP&#39;</span>]] &lt;-<span class="st"> </span><span class="kw">cbind</span>(res_coap<span class="op">$</span>H, H_coap)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="do">##COAP</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">library</span>(COAP)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>tic <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>res_coap <span class="ot">&lt;-</span> <span class="fu">RR_COAP</span>(X_count, <span class="at">Z =</span> <span class="fu">cbind</span>(Z, H), <span class="at">rank_use=</span> <span class="dv">2</span><span class="sc">+</span>hr, <span class="at">q=</span>hq, </span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>                    <span class="at">epsELBO =</span> <span class="fl">1e-7</span>, <span class="at">maxIter =</span> <span class="dv">30</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>toc <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>time_coap <span class="ot">&lt;-</span> toc[<span class="dv">3</span>] <span class="sc">-</span> tic[<span class="dv">3</span>]</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="fu">save</span>(res_coap, time_coap, <span class="at">file=</span><span class="st">&#39;reslist_time_coap.rds&#39;</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>svd_x <span class="ot">&lt;-</span> <span class="fu">svd</span>(res_coap<span class="sc">$</span>bbeta[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>)], <span class="at">nu =</span> hr, <span class="at">nv=</span>hr)</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>H_coap <span class="ot">&lt;-</span> H <span class="sc">%*%</span> svd_x<span class="sc">$</span>v</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>(R2_coap <span class="ot">&lt;-</span> ProFAST<span class="sc">::</span><span class="fu">get_r2_mcfadden</span>(<span class="at">embeds=</span> <span class="fu">cbind</span>(res_coap<span class="sc">$</span>H, H_coap), <span class="at">y=</span><span class="fu">as.factor</span>(cell_clusters)))</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>featureList[[<span class="st">&#39;COAP&#39;</span>]] <span class="ot">&lt;-</span> <span class="fu">cbind</span>(res_coap<span class="sc">$</span>H, H_coap)</span></code></pre></div>
 <p>Second, we run MRRR and calculate the MacFadden’s R-square.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co">## MRRR</span></a>
-<a class="sourceLine" id="cb10-2" title="2">mrrr_run &lt;-<span class="st"> </span><span class="cf">function</span>(Y, X, rank0, <span class="dt">q=</span><span class="ot">NULL</span>, <span class="dt">family=</span><span class="kw">list</span>(<span class="kw">poisson</span>()),</a>
-<a class="sourceLine" id="cb10-3" title="3">                     <span class="dt">familygroup=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">ncol</span>(Y)), <span class="dt">epsilon =</span> <span class="fl">1e-4</span>, <span class="dt">sv.tol =</span> <span class="fl">1e-2</span>,</a>
-<a class="sourceLine" id="cb10-4" title="4">                     <span class="dt">maxIter =</span> <span class="dv">2000</span>, <span class="dt">trace=</span><span class="ot">TRUE</span>, <span class="dt">truncflag=</span><span class="ot">FALSE</span>, <span class="dt">trunc=</span><span class="dv">500</span>){</a>
-<a class="sourceLine" id="cb10-5" title="5">  <span class="co"># epsilon = 1e-4; sv.tol = 1e-2; maxIter = 30; trace=TRUE</span></a>
-<a class="sourceLine" id="cb10-6" title="6">  <span class="co"># Y &lt;- X_count; X &lt;- cbind(Z, H); rank0 = r + ncol(Z)</span></a>
-<a class="sourceLine" id="cb10-7" title="7">  </a>
-<a class="sourceLine" id="cb10-8" title="8">  <span class="kw">require</span>(rrpack)</a>
-<a class="sourceLine" id="cb10-9" title="9">  </a>
-<a class="sourceLine" id="cb10-10" title="10">  n &lt;-<span class="st"> </span><span class="kw">nrow</span>(Y); p &lt;-<span class="st"> </span><span class="kw">ncol</span>(Y)</a>
-<a class="sourceLine" id="cb10-11" title="11">  </a>
-<a class="sourceLine" id="cb10-12" title="12">  <span class="cf">if</span>(<span class="op">!</span><span class="kw">is.null</span>(q)){</a>
-<a class="sourceLine" id="cb10-13" title="13">    rank0 &lt;-<span class="st"> </span>rank0<span class="op">+</span>q</a>
-<a class="sourceLine" id="cb10-14" title="14">    X &lt;-<span class="st"> </span><span class="kw">cbind</span>(X, <span class="kw">diag</span>(n))</a>
-<a class="sourceLine" id="cb10-15" title="15">  }</a>
-<a class="sourceLine" id="cb10-16" title="16">  <span class="cf">if</span>(truncflag){</a>
-<a class="sourceLine" id="cb10-17" title="17">    <span class="co">## Trunction</span></a>
-<a class="sourceLine" id="cb10-18" title="18">    Y[Y<span class="op">&gt;</span>trunc] &lt;-<span class="st"> </span>trunc</a>
-<a class="sourceLine" id="cb10-19" title="19">    </a>
-<a class="sourceLine" id="cb10-20" title="20">  }</a>
-<a class="sourceLine" id="cb10-21" title="21">  </a>
-<a class="sourceLine" id="cb10-22" title="22">  svdX0d1 &lt;-<span class="st"> </span><span class="kw">svd</span>(X)<span class="op">$</span>d[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb10-23" title="23">  init1 =<span class="st"> </span><span class="kw">list</span>(<span class="dt">kappaC0 =</span> svdX0d1 <span class="op">*</span><span class="st"> </span><span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb10-24" title="24">  offset =<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb10-25" title="25">  control =<span class="st"> </span><span class="kw">list</span>(<span class="dt">epsilon =</span> epsilon, <span class="dt">sv.tol =</span> sv.tol, <span class="dt">maxit =</span> maxIter,</a>
-<a class="sourceLine" id="cb10-26" title="26">                 <span class="dt">trace =</span> trace, <span class="dt">gammaC0 =</span> <span class="fl">1.1</span>, <span class="dt">plot.cv =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb10-27" title="27">                 <span class="dt">conv.obj =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb10-28" title="28">  fit.mrrr &lt;-<span class="st"> </span><span class="kw">mrrr</span>(<span class="dt">Y=</span>Y, <span class="dt">X=</span>X[,<span class="op">-</span><span class="dv">1</span>], <span class="dt">family =</span> family, <span class="dt">familygroup =</span> familygroup,</a>
-<a class="sourceLine" id="cb10-29" title="29">                   <span class="dt">penstr =</span> <span class="kw">list</span>(<span class="dt">penaltySVD =</span> <span class="st">&quot;rankCon&quot;</span>, <span class="dt">lambdaSVD =</span> <span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb10-30" title="30">                   <span class="dt">control =</span> control, <span class="dt">init =</span> init1, <span class="dt">maxrank =</span> rank0)</a>
-<a class="sourceLine" id="cb10-31" title="31">  </a>
-<a class="sourceLine" id="cb10-32" title="32">  <span class="kw">return</span>(fit.mrrr)</a>
-<a class="sourceLine" id="cb10-33" title="33">}</a>
-<a class="sourceLine" id="cb10-34" title="34"></a>
-<a class="sourceLine" id="cb10-35" title="35">tic &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb10-36" title="36">res_mrrr &lt;-<span class="st"> </span><span class="kw">mrrr_run</span>(X_count, <span class="kw">cbind</span>(Z,H), <span class="dt">rank0=</span>hr<span class="op">+</span><span class="kw">ncol</span>(Z), <span class="dt">q=</span>hq)</a>
-<a class="sourceLine" id="cb10-37" title="37"><span class="kw">str</span>(res_mrrr)</a>
-<a class="sourceLine" id="cb10-38" title="38">toc &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb10-39" title="39">time_mrrr &lt;-<span class="st"> </span>toc[<span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>tic[<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb10-40" title="40">hbbeta_mrrr &lt;-<span class="kw">t</span>(res_mrrr<span class="op">$</span>coef[<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(<span class="kw">cbind</span>(Z,H)), ])</a>
-<a class="sourceLine" id="cb10-41" title="41">svd_x &lt;-<span class="st"> </span><span class="kw">svd</span>(hbbeta_mrrr[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>)], <span class="dt">nu =</span> hr, <span class="dt">nv=</span>hr)</a>
-<a class="sourceLine" id="cb10-42" title="42">H_mrrr &lt;-<span class="st"> </span>H <span class="op">%*%</span><span class="st"> </span>svd_x<span class="op">$</span>v</a>
-<a class="sourceLine" id="cb10-43" title="43">Theta_hb &lt;-<span class="st"> </span>(res_mrrr<span class="op">$</span>coef[(<span class="kw">ncol</span>(<span class="kw">cbind</span>(Z,H))<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="st"> </span>(<span class="kw">nrow</span>(<span class="kw">cbind</span>(Z,H))<span class="op">+</span><span class="kw">ncol</span>(<span class="kw">cbind</span>(Z,H))), ])</a>
-<a class="sourceLine" id="cb10-44" title="44">svdTheta &lt;-<span class="st"> </span><span class="kw">svd</span>(Theta_hb, <span class="dt">nu=</span>hq, <span class="dt">nv=</span>hq)</a>
-<a class="sourceLine" id="cb10-45" title="45">F_mrrr &lt;-<span class="st"> </span>svdTheta<span class="op">$</span>u</a>
-<a class="sourceLine" id="cb10-46" title="46">(R2_mrrr &lt;-<span class="st"> </span>ProFAST<span class="op">::</span><span class="kw">get_r2_mcfadden</span>(<span class="dt">embeds=</span> <span class="kw">cbind</span>(H_mrrr, F_mrrr), <span class="dt">y=</span><span class="kw">as.factor</span>(cell_clusters)))</a>
-<a class="sourceLine" id="cb10-47" title="47">featureList[[<span class="st">&#39;MRRR&#39;</span>]] &lt;-<span class="st"> </span><span class="kw">cbind</span>(H_mrrr, F_mrrr)</a></code></pre></div>
-<p>Finally, we execute FAST and compute the MacFadden’s R-squared. It is worth noting that we refrain from comparing with PLNPCA in this demo due to its time-consuming nature.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">fast_run &lt;-<span class="st"> </span><span class="cf">function</span>(X_count, Adj_sp, q, <span class="dt">verbose=</span><span class="ot">TRUE</span>, <span class="dt">epsELBO=</span><span class="fl">1e-8</span>){</a>
-<a class="sourceLine" id="cb11-2" title="2">  <span class="kw">require</span>(ProFAST)</a>
-<a class="sourceLine" id="cb11-3" title="3"></a>
-<a class="sourceLine" id="cb11-4" title="4">  reslist &lt;-<span class="st"> </span><span class="kw">FAST_run</span>(<span class="dt">XList =</span> <span class="kw">list</span>(X_count), </a>
-<a class="sourceLine" id="cb11-5" title="5">                      <span class="dt">AdjList =</span> <span class="kw">list</span>(Adj_sp), <span class="dt">q =</span> q, <span class="dt">fit.model =</span> <span class="st">&#39;poisson&#39;</span>, </a>
-<a class="sourceLine" id="cb11-6" title="6">                      <span class="dt">verbose=</span>verbose, <span class="dt">epsLogLik=</span>epsELBO)</a>
-<a class="sourceLine" id="cb11-7" title="7">  reslist<span class="op">$</span>hV &lt;-<span class="st"> </span>reslist<span class="op">$</span>hV[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb11-8" title="8">  <span class="kw">return</span>(reslist)</a>
-<a class="sourceLine" id="cb11-9" title="9">}</a>
-<a class="sourceLine" id="cb11-10" title="10">tic &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb11-11" title="11">res_fast &lt;-<span class="st"> </span><span class="kw">fast_run</span>(X_count, Adj_sp, <span class="dt">q=</span>hq, <span class="dt">verbose=</span><span class="ot">TRUE</span>, <span class="dt">epsELBO=</span><span class="fl">1e-8</span>)</a>
-<a class="sourceLine" id="cb11-12" title="12">toc &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</a>
-<a class="sourceLine" id="cb11-13" title="13">time_fast &lt;-<span class="st"> </span>toc <span class="op">-</span><span class="st"> </span>tic</a>
-<a class="sourceLine" id="cb11-14" title="14">(R2_fast &lt;-<span class="st"> </span>ProFAST<span class="op">::</span><span class="kw">get_r2_mcfadden</span>(<span class="dt">embeds=</span> res_fast<span class="op">$</span>hV, <span class="dt">y=</span><span class="kw">as.factor</span>(cell_clusters)))</a>
-<a class="sourceLine" id="cb11-15" title="15">featureList[[<span class="st">&#39;FAST&#39;</span>]] &lt;-<span class="st"> </span>res_fast<span class="op">$</span>hV</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="do">## MRRR</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>mrrr_run <span class="ot">&lt;-</span> <span class="cf">function</span>(Y, X, rank0, <span class="at">q=</span><span class="cn">NULL</span>, <span class="at">family=</span><span class="fu">list</span>(<span class="fu">poisson</span>()),</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>                     <span class="at">familygroup=</span><span class="fu">rep</span>(<span class="dv">1</span>,<span class="fu">ncol</span>(Y)), <span class="at">epsilon =</span> <span class="fl">1e-4</span>, <span class="at">sv.tol =</span> <span class="fl">1e-2</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>                     <span class="at">maxIter =</span> <span class="dv">2000</span>, <span class="at">trace=</span><span class="cn">TRUE</span>, <span class="at">truncflag=</span><span class="cn">FALSE</span>, <span class="at">trunc=</span><span class="dv">500</span>){</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="co"># epsilon = 1e-4; sv.tol = 1e-2; maxIter = 30; trace=TRUE</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  <span class="co"># Y &lt;- X_count; X &lt;- cbind(Z, H); rank0 = r + ncol(Z)</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  </span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  <span class="fu">require</span>(rrpack)</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>  </span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(Y); p <span class="ot">&lt;-</span> <span class="fu">ncol</span>(Y)</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>  </span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(q)){</span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>    rank0 <span class="ot">&lt;-</span> rank0<span class="sc">+</span>q</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>    X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(X, <span class="fu">diag</span>(n))</span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>  }</span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>  <span class="cf">if</span>(truncflag){</span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>    <span class="do">## Trunction</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>    Y[Y<span class="sc">&gt;</span>trunc] <span class="ot">&lt;-</span> trunc</span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>    </span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>  }</span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>  </span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>  svdX0d1 <span class="ot">&lt;-</span> <span class="fu">svd</span>(X)<span class="sc">$</span>d[<span class="dv">1</span>]</span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>  init1 <span class="ot">=</span> <span class="fu">list</span>(<span class="at">kappaC0 =</span> svdX0d1 <span class="sc">*</span> <span class="dv">5</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>  offset <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>  control <span class="ot">=</span> <span class="fu">list</span>(<span class="at">epsilon =</span> epsilon, <span class="at">sv.tol =</span> sv.tol, <span class="at">maxit =</span> maxIter,</span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>                 <span class="at">trace =</span> trace, <span class="at">gammaC0 =</span> <span class="fl">1.1</span>, <span class="at">plot.cv =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a>                 <span class="at">conv.obj =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a>  fit.mrrr <span class="ot">&lt;-</span> <span class="fu">mrrr</span>(<span class="at">Y=</span>Y, <span class="at">X=</span>X[,<span class="sc">-</span><span class="dv">1</span>], <span class="at">family =</span> family, <span class="at">familygroup =</span> familygroup,</span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a>                   <span class="at">penstr =</span> <span class="fu">list</span>(<span class="at">penaltySVD =</span> <span class="st">&quot;rankCon&quot;</span>, <span class="at">lambdaSVD =</span> <span class="dv">1</span>),</span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a>                   <span class="at">control =</span> control, <span class="at">init =</span> init1, <span class="at">maxrank =</span> rank0)</span>
+<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a>  </span>
+<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a>  <span class="fu">return</span>(fit.mrrr)</span>
+<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a>}</span>
+<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a></span>
+<span id="cb10-35"><a href="#cb10-35" tabindex="-1"></a>tic <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb10-36"><a href="#cb10-36" tabindex="-1"></a>res_mrrr <span class="ot">&lt;-</span> <span class="fu">mrrr_run</span>(X_count, <span class="fu">cbind</span>(Z,H), <span class="at">rank0=</span>hr<span class="sc">+</span><span class="fu">ncol</span>(Z), <span class="at">q=</span>hq)</span>
+<span id="cb10-37"><a href="#cb10-37" tabindex="-1"></a><span class="fu">str</span>(res_mrrr)</span>
+<span id="cb10-38"><a href="#cb10-38" tabindex="-1"></a>toc <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb10-39"><a href="#cb10-39" tabindex="-1"></a>time_mrrr <span class="ot">&lt;-</span> toc[<span class="dv">3</span>] <span class="sc">-</span> tic[<span class="dv">3</span>]</span>
+<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a>hbbeta_mrrr <span class="ot">&lt;-</span><span class="fu">t</span>(res_mrrr<span class="sc">$</span>coef[<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(<span class="fu">cbind</span>(Z,H)), ])</span>
+<span id="cb10-41"><a href="#cb10-41" tabindex="-1"></a>svd_x <span class="ot">&lt;-</span> <span class="fu">svd</span>(hbbeta_mrrr[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>)], <span class="at">nu =</span> hr, <span class="at">nv=</span>hr)</span>
+<span id="cb10-42"><a href="#cb10-42" tabindex="-1"></a>H_mrrr <span class="ot">&lt;-</span> H <span class="sc">%*%</span> svd_x<span class="sc">$</span>v</span>
+<span id="cb10-43"><a href="#cb10-43" tabindex="-1"></a>Theta_hb <span class="ot">&lt;-</span> (res_mrrr<span class="sc">$</span>coef[(<span class="fu">ncol</span>(<span class="fu">cbind</span>(Z,H))<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span> (<span class="fu">nrow</span>(<span class="fu">cbind</span>(Z,H))<span class="sc">+</span><span class="fu">ncol</span>(<span class="fu">cbind</span>(Z,H))), ])</span>
+<span id="cb10-44"><a href="#cb10-44" tabindex="-1"></a>svdTheta <span class="ot">&lt;-</span> <span class="fu">svd</span>(Theta_hb, <span class="at">nu=</span>hq, <span class="at">nv=</span>hq)</span>
+<span id="cb10-45"><a href="#cb10-45" tabindex="-1"></a>F_mrrr <span class="ot">&lt;-</span> svdTheta<span class="sc">$</span>u</span>
+<span id="cb10-46"><a href="#cb10-46" tabindex="-1"></a>(R2_mrrr <span class="ot">&lt;-</span> ProFAST<span class="sc">::</span><span class="fu">get_r2_mcfadden</span>(<span class="at">embeds=</span> <span class="fu">cbind</span>(H_mrrr, F_mrrr), <span class="at">y=</span><span class="fu">as.factor</span>(cell_clusters)))</span>
+<span id="cb10-47"><a href="#cb10-47" tabindex="-1"></a>featureList[[<span class="st">&#39;MRRR&#39;</span>]] <span class="ot">&lt;-</span> <span class="fu">cbind</span>(H_mrrr, F_mrrr)</span></code></pre></div>
+<p>Finally, we execute FAST and compute the MacFadden’s R-squared. It is
+worth noting that we refrain from comparing with PLNPCA in this demo due
+to its time-consuming nature.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>fast_run <span class="ot">&lt;-</span> <span class="cf">function</span>(X_count, Adj_sp, q, <span class="at">verbose=</span><span class="cn">TRUE</span>, <span class="at">epsELBO=</span><span class="fl">1e-8</span>){</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="fu">require</span>(ProFAST)</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  reslist <span class="ot">&lt;-</span> <span class="fu">FAST_run</span>(<span class="at">XList =</span> <span class="fu">list</span>(X_count), </span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>                      <span class="at">AdjList =</span> <span class="fu">list</span>(Adj_sp), <span class="at">q =</span> q, <span class="at">fit.model =</span> <span class="st">&#39;poisson&#39;</span>, </span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>                      <span class="at">verbose=</span>verbose, <span class="at">epsLogLik=</span>epsELBO)</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>  reslist<span class="sc">$</span>hV <span class="ot">&lt;-</span> reslist<span class="sc">$</span>hV[[<span class="dv">1</span>]]</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>  <span class="fu">return</span>(reslist)</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>}</span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>tic <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>res_fast <span class="ot">&lt;-</span> <span class="fu">fast_run</span>(X_count, Adj_sp, <span class="at">q=</span>hq, <span class="at">verbose=</span><span class="cn">TRUE</span>, <span class="at">epsELBO=</span><span class="fl">1e-8</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>toc <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a>time_fast <span class="ot">&lt;-</span> toc <span class="sc">-</span> tic</span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a>(R2_fast <span class="ot">&lt;-</span> ProFAST<span class="sc">::</span><span class="fu">get_r2_mcfadden</span>(<span class="at">embeds=</span> res_fast<span class="sc">$</span>hV, <span class="at">y=</span><span class="fu">as.factor</span>(cell_clusters)))</span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>featureList[[<span class="st">&#39;FAST&#39;</span>]] <span class="ot">&lt;-</span> res_fast<span class="sc">$</span>hV</span></code></pre></div>
 </div>
 <div id="summarize-the-metrics" class="section level3">
 <h3>Summarize the metrics</h3>
-<p>We evaluate the correlation between the low-dimensional representations learned by SpaCOAP and other methods with the annotated cell clusters using two metrics. The first metric is the adjusted MacFadden’s <span class="math inline">\(\mathrm{R}^2\)</span>, referred to as <span class="math inline">\(\mathrm{MacR}^2\)</span>. This measure quantifies the amount of biological information captured by the representations, where a higher value signifies superior performance in representation learning.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">R2List &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
-<a class="sourceLine" id="cb12-2" title="2">cell_label &lt;-<span class="st"> </span>cell_clusters</a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="cf">for</span>(im <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="st"> </span><span class="kw">length</span>(featureList)){</a>
-<a class="sourceLine" id="cb12-4" title="4">  <span class="kw">message</span>(<span class="st">&quot;im = &quot;</span>, im)</a>
-<a class="sourceLine" id="cb12-5" title="5">  R2List[[im]] &lt;-<span class="st"> </span>ProFAST<span class="op">::</span><span class="kw">get_r2_mcfadden</span>(<span class="dt">embeds=</span> featureList[[im]], <span class="dt">y=</span>cell_label)</a>
-<a class="sourceLine" id="cb12-6" title="6">}</a>
-<a class="sourceLine" id="cb12-7" title="7"><span class="kw">names</span>(R2List) &lt;-<span class="st"> </span><span class="kw">names</span>(featureList)</a></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">R2Vec &lt;-<span class="st"> </span><span class="kw">unlist</span>(R2List)</a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="kw">names</span>(R2Vec) &lt;-<span class="st"> </span><span class="kw">names</span>(R2List)</a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="kw">barplot</span>(R2Vec, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.8</span>))</a></code></pre></div>
-<p>Finally, we employ a classification model trained through randomForest, leveraging the cell clusters and the learned low-dimensional representations by SpaCOAP and other methods. We then compare the prediction performance of this model. To achieve this, we randomly divide the samples into training and testing data with a ratio of <span class="math inline">\(7:3\)</span>. We evaluate the model’s performance using prediction accuracy (ACC) and Cohen’s Kappa on the testing data. In contrast of ACC, Kappa offers a more robust measure of accuracy, as it takes into account the possibility that the agreement occurs by chance. We repeat this division process ten times to ensure the reliability of our findings.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">N &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb14-2" title="2">n &lt;-<span class="st"> </span><span class="kw">length</span>(cell_label)</a>
-<a class="sourceLine" id="cb14-3" title="3">methodNames &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SpaCOAP&quot;</span>, <span class="st">&quot;COAP&quot;</span>,  <span class="st">&quot;MRRR&quot;</span>, <span class="st">&quot;FAST&quot;</span>)</a>
-<a class="sourceLine" id="cb14-4" title="4">n_methods &lt;-<span class="st"> </span><span class="kw">length</span>(methodNames)</a>
-<a class="sourceLine" id="cb14-5" title="5">metricList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">ACC =</span> <span class="kw">matrix</span>(<span class="ot">NA</span>,N, n_methods), <span class="dt">Kappa =</span> <span class="kw">matrix</span>(<span class="ot">NA</span>,N, n_methods))</a>
-<a class="sourceLine" id="cb14-6" title="6"><span class="cf">for</span>(ii <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="st"> </span><span class="kw">length</span>(metricList)) <span class="kw">colnames</span>(metricList[[ii]]) &lt;-<span class="st"> </span>methodNames</a>
-<a class="sourceLine" id="cb14-7" title="7"><span class="kw">library</span>(randomForest)</a>
-<a class="sourceLine" id="cb14-8" title="8"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N){</a>
-<a class="sourceLine" id="cb14-9" title="9">  <span class="co"># i &lt;- 1</span></a>
-<a class="sourceLine" id="cb14-10" title="10">  <span class="kw">message</span>(<span class="st">&quot;i = &quot;</span>, i)</a>
-<a class="sourceLine" id="cb14-11" title="11">  <span class="kw">set.seed</span>(i)</a>
-<a class="sourceLine" id="cb14-12" title="12">  idx_train &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">sample</span>(n, <span class="kw">round</span>(n<span class="op">*</span><span class="fl">0.7</span>)))</a>
-<a class="sourceLine" id="cb14-13" title="13">  idx_test &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">setdiff</span>(<span class="dv">1</span><span class="op">:</span>n, idx_train))</a>
-<a class="sourceLine" id="cb14-14" title="14">  rf_spacoap &lt;-<span class="st"> </span><span class="kw">randomForest</span>(featureList[[<span class="st">&#39;SpaCOAP&#39;</span>]][idx_train,], <span class="dt">y=</span>cell_label[idx_train])</a>
-<a class="sourceLine" id="cb14-15" title="15">  hy_spacoap &lt;-<span class="st"> </span><span class="kw">predict</span>(rf_spacoap, <span class="dt">newdata=</span>featureList[[<span class="st">&#39;SpaCOAP&#39;</span>]][idx_test,])</a>
-<a class="sourceLine" id="cb14-16" title="16">  metricList<span class="op">$</span>ACC[i,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">acc_fun</span>(hy_spacoap, cell_label[idx_test])</a>
-<a class="sourceLine" id="cb14-17" title="17">  metricList<span class="op">$</span>Kappa[i,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">kappa_fun</span>(hy_spacoap, cell_label[idx_test])</a>
-<a class="sourceLine" id="cb14-18" title="18">  </a>
-<a class="sourceLine" id="cb14-19" title="19">  rf_coap &lt;-<span class="st"> </span><span class="kw">randomForest</span>(featureList[[<span class="st">&#39;COAP&#39;</span>]][idx_train,], <span class="dt">y=</span>cell_label[idx_train])</a>
-<a class="sourceLine" id="cb14-20" title="20">  hy_coap &lt;-<span class="st"> </span><span class="kw">predict</span>(rf_coap, <span class="dt">newdata=</span>featureList[[<span class="st">&#39;COAP&#39;</span>]][idx_test,])</a>
-<a class="sourceLine" id="cb14-21" title="21">  metricList<span class="op">$</span>ACC[i,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="kw">acc_fun</span>(hy_coap, cell_label[idx_test])</a>
-<a class="sourceLine" id="cb14-22" title="22">  metricList<span class="op">$</span>Kappa[i,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="kw">kappa_fun</span>(hy_coap, cell_label[idx_test])</a>
-<a class="sourceLine" id="cb14-23" title="23"> </a>
-<a class="sourceLine" id="cb14-24" title="24">  <span class="kw">colnames</span>(featureList[[<span class="st">&#39;MRRR&#39;</span>]]) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;MRRR&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(featureList[[<span class="st">&#39;MRRR&#39;</span>]]))</a>
-<a class="sourceLine" id="cb14-25" title="25">  rf_MRRR &lt;-<span class="st"> </span><span class="kw">randomForest</span>(featureList[[<span class="st">&#39;MRRR&#39;</span>]][idx_train,], <span class="dt">y=</span>cell_label[idx_train])</a>
-<a class="sourceLine" id="cb14-26" title="26">  hy_MRRR &lt;-<span class="st"> </span><span class="kw">predict</span>(rf_MRRR, <span class="dt">newdata=</span>featureList[[<span class="st">&#39;MRRR&#39;</span>]][idx_test,])</a>
-<a class="sourceLine" id="cb14-27" title="27">  metricList<span class="op">$</span>ACC[i,<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">acc_fun</span>(hy_MRRR, cell_label[idx_test])</a>
-<a class="sourceLine" id="cb14-28" title="28">  metricList<span class="op">$</span>Kappa[i,<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">kappa_fun</span>(hy_MRRR, cell_label[idx_test])</a>
-<a class="sourceLine" id="cb14-29" title="29"></a>
-<a class="sourceLine" id="cb14-30" title="30">  <span class="kw">colnames</span>(featureList[[<span class="st">&#39;FAST&#39;</span>]]) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;FAST&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(featureList[[<span class="st">&#39;FAST&#39;</span>]]))</a>
-<a class="sourceLine" id="cb14-31" title="31">  rf_FAST &lt;-<span class="st"> </span><span class="kw">randomForest</span>(featureList[[<span class="st">&#39;FAST&#39;</span>]][idx_train,], <span class="dt">y=</span>cell_label[idx_train])</a>
-<a class="sourceLine" id="cb14-32" title="32">  hy_FAST &lt;-<span class="st"> </span><span class="kw">predict</span>(rf_FAST, <span class="dt">newdata=</span>featureList[[<span class="st">&#39;FAST&#39;</span>]][idx_test,])</a>
-<a class="sourceLine" id="cb14-33" title="33">  metricList<span class="op">$</span>ACC[i,<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="kw">acc_fun</span>(hy_FAST, cell_label[idx_test])</a>
-<a class="sourceLine" id="cb14-34" title="34">  metricList<span class="op">$</span>Kappa[i,<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="kw">kappa_fun</span>(hy_FAST, cell_label[idx_test])</a>
-<a class="sourceLine" id="cb14-35" title="35">}</a>
-<a class="sourceLine" id="cb14-36" title="36"></a>
-<a class="sourceLine" id="cb14-37" title="37">DT<span class="op">::</span><span class="kw">datatable</span>(<span class="kw">t</span>(<span class="kw">round</span>(<span class="kw">sapply</span>(metricList, colMeans, <span class="dt">na.rm=</span>T),<span class="dv">2</span>) ))</a></code></pre></div>
+<p>We evaluate the correlation between the low-dimensional
+representations learned by SpaCOAP and other methods with the annotated
+cell clusters using two metrics. The first metric is the adjusted
+MacFadden’s <span class="math inline">\(\mathrm{R}^2\)</span>, referred
+to as <span class="math inline">\(\mathrm{MacR}^2\)</span>. This measure
+quantifies the amount of biological information captured by the
+representations, where a higher value signifies superior performance in
+representation learning.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>R2List <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>cell_label <span class="ot">&lt;-</span> cell_clusters</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="cf">for</span>(im <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span> <span class="fu">length</span>(featureList)){</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;im = &quot;</span>, im)</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  R2List[[im]] <span class="ot">&lt;-</span> ProFAST<span class="sc">::</span><span class="fu">get_r2_mcfadden</span>(<span class="at">embeds=</span> featureList[[im]], <span class="at">y=</span>cell_label)</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>}</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="fu">names</span>(R2List) <span class="ot">&lt;-</span> <span class="fu">names</span>(featureList)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>R2Vec <span class="ot">&lt;-</span> <span class="fu">unlist</span>(R2List)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="fu">names</span>(R2Vec) <span class="ot">&lt;-</span> <span class="fu">names</span>(R2List)</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="fu">barplot</span>(R2Vec, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.8</span>))</span></code></pre></div>
+<p>Finally, we employ a classification model trained through
+randomForest, leveraging the cell clusters and the learned
+low-dimensional representations by SpaCOAP and other methods. We then
+compare the prediction performance of this model. To achieve this, we
+randomly divide the samples into training and testing data with a ratio
+of <span class="math inline">\(7:3\)</span>. We evaluate the model’s
+performance using prediction accuracy (ACC) and Cohen’s Kappa on the
+testing data. In contrast of ACC, Kappa offers a more robust measure of
+accuracy, as it takes into account the possibility that the agreement
+occurs by chance. We repeat this division process ten times to ensure
+the reliability of our findings.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(cell_label)</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>methodNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SpaCOAP&quot;</span>, <span class="st">&quot;COAP&quot;</span>,  <span class="st">&quot;MRRR&quot;</span>, <span class="st">&quot;FAST&quot;</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>n_methods <span class="ot">&lt;-</span> <span class="fu">length</span>(methodNames)</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>metricList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">ACC =</span> <span class="fu">matrix</span>(<span class="cn">NA</span>,N, n_methods), <span class="at">Kappa =</span> <span class="fu">matrix</span>(<span class="cn">NA</span>,N, n_methods))</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="cf">for</span>(ii <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span> <span class="fu">length</span>(metricList)) <span class="fu">colnames</span>(metricList[[ii]]) <span class="ot">&lt;-</span> methodNames</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N){</span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>  <span class="co"># i &lt;- 1</span></span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;i = &quot;</span>, i)</span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a>  <span class="fu">set.seed</span>(i)</span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a>  idx_train <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(n, <span class="fu">round</span>(n<span class="sc">*</span><span class="fl">0.7</span>)))</span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a>  idx_test <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">setdiff</span>(<span class="dv">1</span><span class="sc">:</span>n, idx_train))</span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a>  rf_spacoap <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(featureList[[<span class="st">&#39;SpaCOAP&#39;</span>]][idx_train,], <span class="at">y=</span>cell_label[idx_train])</span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a>  hy_spacoap <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf_spacoap, <span class="at">newdata=</span>featureList[[<span class="st">&#39;SpaCOAP&#39;</span>]][idx_test,])</span>
+<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a>  metricList<span class="sc">$</span>ACC[i,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">acc_fun</span>(hy_spacoap, cell_label[idx_test])</span>
+<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a>  metricList<span class="sc">$</span>Kappa[i,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">kappa_fun</span>(hy_spacoap, cell_label[idx_test])</span>
+<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a>  </span>
+<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a>  rf_coap <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(featureList[[<span class="st">&#39;COAP&#39;</span>]][idx_train,], <span class="at">y=</span>cell_label[idx_train])</span>
+<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a>  hy_coap <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf_coap, <span class="at">newdata=</span>featureList[[<span class="st">&#39;COAP&#39;</span>]][idx_test,])</span>
+<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a>  metricList<span class="sc">$</span>ACC[i,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">acc_fun</span>(hy_coap, cell_label[idx_test])</span>
+<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a>  metricList<span class="sc">$</span>Kappa[i,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">kappa_fun</span>(hy_coap, cell_label[idx_test])</span>
+<span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a> </span>
+<span id="cb14-24"><a href="#cb14-24" tabindex="-1"></a>  <span class="fu">colnames</span>(featureList[[<span class="st">&#39;MRRR&#39;</span>]]) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;MRRR&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(featureList[[<span class="st">&#39;MRRR&#39;</span>]]))</span>
+<span id="cb14-25"><a href="#cb14-25" tabindex="-1"></a>  rf_MRRR <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(featureList[[<span class="st">&#39;MRRR&#39;</span>]][idx_train,], <span class="at">y=</span>cell_label[idx_train])</span>
+<span id="cb14-26"><a href="#cb14-26" tabindex="-1"></a>  hy_MRRR <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf_MRRR, <span class="at">newdata=</span>featureList[[<span class="st">&#39;MRRR&#39;</span>]][idx_test,])</span>
+<span id="cb14-27"><a href="#cb14-27" tabindex="-1"></a>  metricList<span class="sc">$</span>ACC[i,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">acc_fun</span>(hy_MRRR, cell_label[idx_test])</span>
+<span id="cb14-28"><a href="#cb14-28" tabindex="-1"></a>  metricList<span class="sc">$</span>Kappa[i,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">kappa_fun</span>(hy_MRRR, cell_label[idx_test])</span>
+<span id="cb14-29"><a href="#cb14-29" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" tabindex="-1"></a>  <span class="fu">colnames</span>(featureList[[<span class="st">&#39;FAST&#39;</span>]]) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;FAST&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(featureList[[<span class="st">&#39;FAST&#39;</span>]]))</span>
+<span id="cb14-31"><a href="#cb14-31" tabindex="-1"></a>  rf_FAST <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(featureList[[<span class="st">&#39;FAST&#39;</span>]][idx_train,], <span class="at">y=</span>cell_label[idx_train])</span>
+<span id="cb14-32"><a href="#cb14-32" tabindex="-1"></a>  hy_FAST <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf_FAST, <span class="at">newdata=</span>featureList[[<span class="st">&#39;FAST&#39;</span>]][idx_test,])</span>
+<span id="cb14-33"><a href="#cb14-33" tabindex="-1"></a>  metricList<span class="sc">$</span>ACC[i,<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">acc_fun</span>(hy_FAST, cell_label[idx_test])</span>
+<span id="cb14-34"><a href="#cb14-34" tabindex="-1"></a>  metricList<span class="sc">$</span>Kappa[i,<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">kappa_fun</span>(hy_FAST, cell_label[idx_test])</span>
+<span id="cb14-35"><a href="#cb14-35" tabindex="-1"></a>}</span>
+<span id="cb14-36"><a href="#cb14-36" tabindex="-1"></a></span>
+<span id="cb14-37"><a href="#cb14-37" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="fu">t</span>(<span class="fu">round</span>(<span class="fu">sapply</span>(metricList, colMeans, <span class="at">na.rm=</span>T),<span class="dv">2</span>) ))</span></code></pre></div>
 <details>
-<p><summary><strong>Session Info</strong></summary></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">sessionInfo</span>()</a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="co">#&gt; R version 4.1.2 (2021-11-01)</span></a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="co">#&gt; Platform: x86_64-w64-mingw32/x64 (64-bit)</span></a>
-<a class="sourceLine" id="cb15-4" title="4"><span class="co">#&gt; Running under: Windows 10 x64 (build 22631)</span></a>
-<a class="sourceLine" id="cb15-5" title="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb15-6" title="6"><span class="co">#&gt; Matrix products: default</span></a>
-<a class="sourceLine" id="cb15-7" title="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb15-8" title="8"><span class="co">#&gt; locale:</span></a>
-<a class="sourceLine" id="cb15-9" title="9"><span class="co">#&gt; [1] LC_COLLATE=C                              </span></a>
-<a class="sourceLine" id="cb15-10" title="10"><span class="co">#&gt; [2] LC_CTYPE=Chinese (Simplified)_China.936   </span></a>
-<a class="sourceLine" id="cb15-11" title="11"><span class="co">#&gt; [3] LC_MONETARY=Chinese (Simplified)_China.936</span></a>
-<a class="sourceLine" id="cb15-12" title="12"><span class="co">#&gt; [4] LC_NUMERIC=C                              </span></a>
-<a class="sourceLine" id="cb15-13" title="13"><span class="co">#&gt; [5] LC_TIME=Chinese (Simplified)_China.936    </span></a>
-<a class="sourceLine" id="cb15-14" title="14"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb15-15" title="15"><span class="co">#&gt; attached base packages:</span></a>
-<a class="sourceLine" id="cb15-16" title="16"><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></a>
-<a class="sourceLine" id="cb15-17" title="17"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb15-18" title="18"><span class="co">#&gt; loaded via a namespace (and not attached):</span></a>
-<a class="sourceLine" id="cb15-19" title="19"><span class="co">#&gt;  [1] digest_0.6.29   R6_2.5.1        jsonlite_1.8.0  magrittr_2.0.3 </span></a>
-<a class="sourceLine" id="cb15-20" title="20"><span class="co">#&gt;  [5] evaluate_0.15   stringi_1.7.6   rlang_1.1.0     cli_3.2.0      </span></a>
-<a class="sourceLine" id="cb15-21" title="21"><span class="co">#&gt;  [9] rstudioapi_0.13 jquerylib_0.1.4 bslib_0.3.1     rmarkdown_2.11 </span></a>
-<a class="sourceLine" id="cb15-22" title="22"><span class="co">#&gt; [13] tools_4.1.2     stringr_1.4.0   xfun_0.29       yaml_2.3.6     </span></a>
-<a class="sourceLine" id="cb15-23" title="23"><span class="co">#&gt; [17] fastmap_1.1.0   compiler_4.1.2  htmltools_0.5.2 knitr_1.37     </span></a>
-<a class="sourceLine" id="cb15-24" title="24"><span class="co">#&gt; [21] sass_0.4.1</span></a></code></pre></div>
+<summary>
+<strong>Session Info</strong>
+</summary>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="co">#&gt; R version 4.4.1 (2024-06-14 ucrt)</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="co">#&gt; Platform: x86_64-w64-mingw32/x64</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="co">#&gt; Running under: Windows 11 x64 (build 26100)</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#&gt; Matrix products: default</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="co">#&gt; locale:</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="co">#&gt; [1] LC_COLLATE=C                               </span></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="co">#&gt; [2] LC_CTYPE=Chinese (Simplified)_China.utf8   </span></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="co">#&gt; [3] LC_MONETARY=Chinese (Simplified)_China.utf8</span></span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a><span class="co">#&gt; [4] LC_NUMERIC=C                               </span></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a><span class="co">#&gt; [5] LC_TIME=Chinese (Simplified)_China.utf8    </span></span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a><span class="co">#&gt; time zone: Asia/Shanghai</span></span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a><span class="co">#&gt; tzcode source: internal</span></span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a><span class="co">#&gt; attached base packages:</span></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
+<span id="cb15-23"><a href="#cb15-23" tabindex="-1"></a><span class="co">#&gt;  [1] digest_0.6.37     R6_2.5.1          fastmap_1.2.0     xfun_0.47        </span></span>
+<span id="cb15-24"><a href="#cb15-24" tabindex="-1"></a><span class="co">#&gt;  [5] cachem_1.1.0      knitr_1.48        htmltools_0.5.8.1 rmarkdown_2.28   </span></span>
+<span id="cb15-25"><a href="#cb15-25" tabindex="-1"></a><span class="co">#&gt;  [9] lifecycle_1.0.4   cli_3.6.3         sass_0.4.9        jquerylib_0.1.4  </span></span>
+<span id="cb15-26"><a href="#cb15-26" tabindex="-1"></a><span class="co">#&gt; [13] compiler_4.4.1    rstudioapi_0.16.0 tools_4.4.1       evaluate_1.0.0   </span></span>
+<span id="cb15-27"><a href="#cb15-27" tabindex="-1"></a><span class="co">#&gt; [17] bslib_0.8.0       yaml_2.3.10       rlang_1.1.4       jsonlite_1.8.9</span></span></code></pre></div>
 </details>
 </div>
 </div>

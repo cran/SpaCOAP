@@ -1,27 +1,27 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  url1 <- "https://github.com/feiyoung/SpaCOAP/raw/master/vignettes_data/"
+#  url1 <- "https://github.com/feiyoung/SpaCOAP/tree/master/vignettes_data/"
 #  rna_object <- "seu_rna_over_Spleen.RDS?raw=true"
 #  download.file(paste0(url1, rna_object),"seu_rna_over_Spleen.RDS",mode='wb')
 #  protein_object <- "seu_adt_over_Spleen.RDS?raw=true"
 #  download.file(paste0(url1,protein_object), 'seu_adt_over_Spleen.RDS', mode='wb')
 #  ## download  annotation
-#  download.file(paste0(url1, "cell_clusters_anno.rds?raw=true"), "cell_clusters_anno.rds", mode="wb")
+#  download.file(paste0(url1, "cell_clusters_anno.rds?raw=true"), "cell_clusters_anno.rds", "wb")
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  seu_rna_over <- readRDS("./seu_rna_over_Spleen.RDS")
 #  seu_adt_over <- readRDS("./seu_adt_over_Spleen.RDS")
 #  load("./cell_clusters_anno.rds")
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  library(SpaCOAP) #
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  searchRadius <- function(pos, lower.med=8, upper.med=10, radius.upper= NULL){
 #    if (!inherits(pos, "matrix"))
 #      stop("method is only for  matrix object!")
@@ -98,7 +98,7 @@ knitr::opts_chunk$set(
 #    k_res$value
 #  }
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  
 #  X_count <- Matrix::t(seu_rna_over[["RNA"]][seu_rna_over[['RNA']]@var.features,])
 #  X_count <-  as.matrix(X_count)
@@ -114,7 +114,7 @@ knitr::opts_chunk$set(
 #  dis <- dist(pos[idx,])
 #  Adj_sp <-  SpaCOAP:::getneighbor_weightmat(pos, radius = radius_use, width=median(dis))
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  q_max <- 20
 #  d <- ncol(H)
 #  rank_max <- d
@@ -124,7 +124,7 @@ knitr::opts_chunk$set(
 #  toc <- proc.time()
 #  time_spacoap_max <- toc[3] - tic[3]
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  threshold=c(1e-15, 1e-20)
 #  thre1 <- threshold[1]
 #  beta_svalues <- svd(reslist_max$bbeta)$d
@@ -142,7 +142,7 @@ knitr::opts_chunk$set(
 #  # Here, we choose q=5 since huge decrease of singular values happen in q=5.
 #  hq <- 5
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  hr <- 9;hq <- 5
 #  featureList <- list()
 #  tic <- proc.time()
@@ -158,7 +158,7 @@ knitr::opts_chunk$set(
 #  
 #  
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  ##COAP
 #  library(COAP)
 #  tic <- proc.time()
@@ -166,6 +166,7 @@ knitr::opts_chunk$set(
 #                      epsELBO = 1e-7, maxIter = 30)
 #  toc <- proc.time()
 #  time_coap <- toc[3] - tic[3]
+#  save(res_coap, time_coap, file='reslist_time_coap.rds')
 #  svd_x <- svd(res_coap$bbeta[,-c(1)], nu = hr, nv=hr)
 #  H_coap <- H %*% svd_x$v
 #  (R2_coap <- ProFAST::get_r2_mcfadden(embeds= cbind(res_coap$H, H_coap), y=as.factor(cell_clusters)))
@@ -220,7 +221,7 @@ knitr::opts_chunk$set(
 #  (R2_mrrr <- ProFAST::get_r2_mcfadden(embeds= cbind(H_mrrr, F_mrrr), y=as.factor(cell_clusters)))
 #  featureList[['MRRR']] <- cbind(H_mrrr, F_mrrr)
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  fast_run <- function(X_count, Adj_sp, q, verbose=TRUE, epsELBO=1e-8){
 #    require(ProFAST)
 #  
@@ -238,7 +239,7 @@ knitr::opts_chunk$set(
 #  featureList[['FAST']] <- res_fast$hV
 #  
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  R2List <- list()
 #  cell_label <- cell_clusters
 #  for(im in 1: length(featureList)){
@@ -247,12 +248,12 @@ knitr::opts_chunk$set(
 #  }
 #  names(R2List) <- names(featureList)
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  R2Vec <- unlist(R2List)
 #  names(R2Vec) <- names(R2List)
 #  barplot(R2Vec, ylim=c(0, 0.8))
 
-## ----eval = FALSE-------------------------------------------------------------
+## ----eval =FALSE--------------------------------------------------------------
 #  N <- 10
 #  n <- length(cell_label)
 #  methodNames <- c("SpaCOAP", "COAP",  "MRRR", "FAST")

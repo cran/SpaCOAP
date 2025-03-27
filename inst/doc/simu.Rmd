@@ -203,7 +203,6 @@ time_mrrr <- toc[3] - tic[3]
 
 ```
 
-Calculate the metrics for MRRR.
 ```{r  eval = FALSE}
 hbbeta_mrrr <-t(res_mrrr$coef[1:ncol(cbind(Z,H)), ])
 Theta_hb <- (res_mrrr$coef[(ncol(cbind(Z,H))+1): (nrow(cbind(Z,H))+ncol(cbind(Z,H))), ])
@@ -216,7 +215,6 @@ metricList$MRRR$alpha_norm1 <- norm1_vec(alpha_mrrr- alpha0)/mean(abs(alpha0))
 metricList$MRRR$beta_norm1 <- norm1_vec(beta_mrrr- bbeta0)/mean(abs(bbeta0))
 metricList$MRRR$time <- time_mrrr
 ```
-
 (6) Finally, we implement FAST that takes into account spatial dependence among units, but unable to account for additional covariates.
 
 ```{r  eval =FALSE}
